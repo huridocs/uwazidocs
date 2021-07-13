@@ -884,16 +884,9 @@ describe('search', () => {
       expect(filteredByTemplateOptions.length).toBe(3);
     });
 
-    it('should filter by unpublished', async () => {
+    it('should include unpublished entities', async () => {
       const { options } = await search.autocomplete('unpublished', 'es');
-      expect(options.length).toBe(0);
-      const { options: optionsUnpublished } = await search.autocomplete(
-        'unpublished',
-        'es',
-        [],
-        true
-      );
-      expect(optionsUnpublished.length).toBe(1);
+      expect(options.length).toBe(1);
     });
   });
 
